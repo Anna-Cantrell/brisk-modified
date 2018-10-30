@@ -1,5 +1,5 @@
 # Swift
-###This is a modified version of ['Brisk'](https://github.com/crisp-agency/brisk) by Autumn Welles
+### This is a modified version of ['Brisk'](https://github.com/crisp-agency/brisk) by Autumn Welles
 This theme uses [SCSS](https://sass-lang.com/).
 
 ## Development
