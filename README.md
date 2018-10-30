@@ -1,5 +1,5 @@
 # Swift
-### This is a modified version of ['Brisk'](https://github.com/crisp-agency/brisk) by Autumn Welles
+#### This is a modified version of ['Brisk'](https://github.com/crisp-agency/brisk) by Autumn Welles
 This theme uses [SCSS](https://sass-lang.com/).
 
 ## Development
@@ -8,6 +8,5 @@ This theme uses [SCSS](https://sass-lang.com/).
 2. [Install gulp globally](https://github.com/gulpjs/gulp/blob/v3.9.1/docs/getting-started.md) by running `npm install --global gulp-cli` in your terminal. Then run `npm link gulp` in your root directory.
 3. While in the repo root directory, run `npm install` from your terminal.
 4. In that same directory, run `gulp` from your terminal.
-5. Make sure you have the [LiveReload Chrome plugin installed](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) and enabled with the site pulled up.
 6. Make changes in `/src/scss/**/*.scss` and `/functions.js`.
 7. See changes reflected in `./style.css` and `./functions.min.js`.
