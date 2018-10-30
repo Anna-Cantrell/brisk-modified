@@ -1,0 +1,12 @@
+/*
+Theme Name: Brisk
+Author: CRISP Agency
+Author URI: https://crisp.agency
+Description: A clean starter theme for CRISP.
+Version: 1.0.0
+GitHub Theme URI: crisp-agency/brisk
+*/
+
+@import 'imports/base/layout.css';
+
+@import 'imports/components/main-menu.css';
