@@ -6,8 +6,8 @@
  * posts in the main content area.
  *
  * @package WordPress
- * @subpackage Brisk
- * @since Brisk 1.0
+ * @subpackage Swift
+ * @since Swift 1.0
  */
 
 get_header(); ?>

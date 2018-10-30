@@ -1,12 +1,8 @@
-/*
-Theme Name: Brisk
-Author: CRISP Agency
-Author URI: https://crisp.agency
-Description: A clean starter theme for CRISP.
+/*!
+Theme Name: Swift
+Author: Anna Cantrell
+Author URI: https://annacantrell.design/
+Description: Modified WordPress starter theme based off Brisk by Autumn Welles.
 Version: 1.0.0
-GitHub Theme URI: crisp-agency/brisk
-*/
-
-@import 'imports/base/layout.css';
-
-@import 'imports/components/main-menu.css';
+GitHub Theme URI: Anna-Cantrell/swift
+*/.layout{margin:0 auto}.layout--normal{max-width:1024px}.layout--wide{max-width:1600px}.layout--full{max-width:100%}.layout--narrow{max-width:768px}@media (min-width:768px){.menu-main-menu-container .main-menu-toggle{display:none}.menu-main-menu-container .menu{display:block!important}}

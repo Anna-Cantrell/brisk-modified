@@ -6,8 +6,8 @@
  * theme functionality.
  *
  * @package WordPress
- * @subpackage Brisk
- * @since Brisk 1.0
+ * @subpackage Swift
+ * @since Swift 1.0
  */
 
 /**
@@ -16,21 +16,21 @@
  * The code below registers custom WordPress styles using wp_register_style()
  * function.
  *
- * @since Brisk 1.0
+ * @since Swift 1.0
  */
 
-function brisk_styles() {
+function swift_styles() {
 	// Load main stylesheet
-	wp_enqueue_style('brisk-style', get_template_directory_uri() . '/style.min.css');
+	wp_enqueue_style('swift-style', get_template_directory_uri() . '/style.min.css');
 
 	// Load main javascript
-	wp_enqueue_script('brisk-script', get_template_directory_uri() . '/functions.min.js', array('jquery'), '1.0', true);
+	wp_enqueue_script('swift-script', get_template_directory_uri() . '/functions.min.js', array('jquery'), '1.0', true);
 }
 
-add_action('wp_enqueue_scripts', 'brisk_styles');
+add_action('wp_enqueue_scripts', 'swift_styles');
 
 // Move jQuery to footer
-function brisk_jquery_footer() {
+function swift_jquery_footer() {
 	// unregister jquery
 	wp_deregister_script('jquery');
 
@@ -40,7 +40,7 @@ function brisk_jquery_footer() {
 	wp_enqueue_script('jquery');
 }
 
-add_action('wp_enqueue_scripts', 'brisk_jquery_footer');
+add_action('wp_enqueue_scripts', 'swift_jquery_footer');
 
 /**
  * Register Features
@@ -48,10 +48,10 @@ add_action('wp_enqueue_scripts', 'brisk_jquery_footer');
  * The code below registers custom WordPress theme features using
  * add_theme_support() function.
  *
- * @since Brisk 1.0
+ * @since Swift 1.0
  */
 
-function brisk_features() {
+function swift_features() {
 	// Support title tag
 	add_theme_support('title-tag');
 
@@ -59,7 +59,7 @@ function brisk_features() {
 	add_theme_support('post-thumbnails');
 }
 
-add_action('after_setup_theme', 'brisk_features');
+add_action('after_setup_theme', 'swift_features');
 
 /**
  * Register Menus
@@ -67,10 +67,10 @@ add_action('after_setup_theme', 'brisk_features');
  * The code below registers custom WordPress menus using register_my_menus()
  * function.
  *
- * @since Brisk 1.0
+ * @since Swift 1.0
  */
 
-function brisk_register_menus() {
+function swift_register_menus() {
 	register_nav_menus(
 		array(
 			'main-menu' => __('Main Menu')
@@ -78,7 +78,7 @@ function brisk_register_menus() {
 	);
 }
 
-add_action('init', 'brisk_register_menus');
+add_action('init', 'swift_register_menus');
 
 // Remove editor (using flexible content instead)
 
@@ -95,7 +95,7 @@ add_action('init', 'remove_editor');
  * The code below adds and adjusts various functionality for the Advanced Custom
  * Fields PRO plugin.
  *
- * @since Brisk 1.0
+ * @since Swift 1.0
  */
 
 if( function_exists('acf_add_options_page') ) {

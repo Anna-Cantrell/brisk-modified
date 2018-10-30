@@ -1,25 +1,47 @@
 // Require packages
 var gulp = require('gulp');
-var postcss = require('gulp-postcss');
-var cssnext = require('postcss-cssnext');
-var minify = require('gulp-minify-css');
-var babelMinify = require('gulp-babel-minify');
-var rename = require('gulp-rename');
-var livereload = require('gulp-livereload');
-var atImport = require("postcss-import")
+    babelMinify = require('gulp-babel-minify');
+    minifyCSS = require('gulp-minify-css'),
+    sass = require('gulp-sass'),
+    browserSync = require('browser-sync'),
+    runSequence = require('run-sequence');
+    pump = require('pump');
+    rename = require('gulp-rename')
 
-// Do CSS things
-gulp.task('css', function() {
-	var plugins = [
-		atImport(),
-		cssnext()
-	];
-	return gulp.src('./style.css')
-		.pipe(postcss(plugins))
-		.pipe(minify({ keepBreaks: true }))
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest('./'))
-		.pipe(livereload());
+
+var paths = {
+    templates: './*.php',
+    css: '*.css',
+    js: './functions.js',
+    scss: 'src/scss/**/*.scss'
+};
+
+// Start browserSync server stuffs
+gulp.task('browserSync', function() {
+    browserSync.init({
+       proxy: 'http://localhost:8888/'
+    })
+});
+
+// Do Template things
+gulp.task('templates', function() {
+    return gulp.src(paths.templates)
+    .pipe(browserSync.reload({
+        stream:true
+    }));
+});
+
+
+// Do SCSS things
+gulp.task('styles', function(){
+    return gulp.src(paths.scss)
+    .pipe(sass())
+    .pipe(minifyCSS())
+		// .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('./'))
+    .pipe(browserSync.reload({
+        stream:true
+    }));
 });
 
 // Do JS things
@@ -28,13 +50,19 @@ gulp.task('js', function() {
 		.pipe(babelMinify())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest('./'))
-		.pipe(livereload());
+		.pipe(browserSync.reload({
+        stream:true
+    }));
 });
 
-// Watch things
-gulp.task('watch', function() {
-	livereload.listen();
-	gulp.watch(['./style.css', './functions.js', './imports/**/*.css'], gulp.parallel('css', 'js'));
+//Watch things
+gulp.task('watch', ['browserSync'], function() {
+    gulp.watch(paths.templates, ['templates']);
+    gulp.watch(paths.scss, ['styles']);
+    gulp.watch(paths.js, ['js']);
 });
 
-gulp.task('default', gulp.series(gulp.parallel('css', 'js'), 'watch'));
+// Starts gulp
+gulp.task('default', function (callback) {
+    runSequence(['styles', 'templates', 'js', 'browserSync', 'watch'], callback);
+});

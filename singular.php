@@ -6,8 +6,8 @@
  * the main content area of individual types (posts, pages, etc).
  *
  * @package WordPress
- * @subpackage Brisk
- * @since Brisk 1.0
+ * @subpackage Swift
+ * @since Swift 1.0
  */
 
 get_header(); ?>
