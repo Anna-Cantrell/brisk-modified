@@ -61,7 +61,7 @@ $sections
 			->addTab('Content')
 			->addFields($image)
 			->addFields($section_options)
-		->addLayout('title', ['min' => 1])
+		->addLayout('title')
 			->addTab('Content')
 			->addFields($title)
 			->addFields($section_options)
